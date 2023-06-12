@@ -95,19 +95,12 @@ def reduce_qulity(image):
         image = cv2.resize(image, (128, 32), interpolation = cv2.INTER_AREA)
         image = cv2.resize(image, (512, 128), interpolation = cv2.INTER_AREA)
         image = cv2.resize(image, (256, 64), interpolation = cv2.INTER_AREA)
-        # image = Image.fromarray(image)
-        # image = image.resize((128, 32))
-        # image = image.resize((512, 128))
-        # image = image.resize((256, 64))
-        # image = np.asarray(image)
-
+ 
     return image
 
 def median_blur(image):
     image = np.asarray(image, dtype="uint8")
     medBlur = cv2.medianBlur(image, 7)
-    # medBlur = scipy.signal.medfilt2d(input, kernel_size=3)
-
     return medBlur
 
 
@@ -149,32 +142,3 @@ class ImageGenerator:
             if i == self.batch_size:
                 yield X, Y
                 X, Y, i = self.emptyBatch()
-
-
-
-# plate_data = load_images_from_folder('plate_val')
-# generator = ImageGenerator(plate_data)
-
-
-
-# j = 0
-# images = []
-# path = 'plate_val'
-# for filename in os.listdir(path):
-#     image = cv2.imread(os.path.join(path,filename))
-#     img = cv2.resize(image, (256, 64))
-#     img = cv2.cvtColor(img, cv2.COLOR_BGR2RGB)
-#     img = tf.image.rgb_to_grayscale(img)
-#     img = tf.image.grayscale_to_rgb(img)
-#     img = tf.keras.preprocessing.image.img_to_array(img)
-#     img = np.asarray(img, dtype="uint8")
-#     # if img is not None:
-    
-#     for i in range(4):
-#         cv2.imwrite(f"dataset_grey_val/y/{j}.jpg", img)
-#         augmented_img = generator.augmentImage(img)
-#         cv2.imwrite(f"dataset_grey_val/x/{j}.jpg", augmented_img)
-#         j += 1
-#         # cv2.imshow("org", image)
-#         # cv2.imshow("augmented", augmented_img)
-#         # cv2.waitKey(0)
