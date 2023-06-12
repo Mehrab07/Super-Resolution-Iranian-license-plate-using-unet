@@ -19,10 +19,6 @@ def gray_3channel(image):
 
 def perceptual_loss(y_true,y_pred):
     '''This function computes the perceptual loss using an already trained VGG layer'''
-    # if y_true.shape[2]==1:
-    #     y_true = gray_3channel(y_true)
-    #     y_pred = gray_3channel(y_pred)
-
     y_t=vgg_layer(y_true)
     y_p=vgg_layer(y_pred)
     loss=K.losses.mean_squared_error(y_t,y_p)
