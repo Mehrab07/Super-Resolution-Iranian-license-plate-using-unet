@@ -7,14 +7,8 @@ import cv2
 
 
 def preprocess_image(image):
-    
     return np.array(image / 255)
 
-# def scale_resize_image(image):
-#     image = tf.image.convert_image_dtype(image, tf.float32)
-#     image = tf.image.resize(image, (64, 256))
-#     # image = cv2.resize(image, (256, 64))
-#     return image
 
 
 def load_images_from_folder(folder):
