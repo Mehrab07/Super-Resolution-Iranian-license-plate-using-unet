@@ -20,24 +20,10 @@ y_val = np.stack([preprocess_image(cv2.imread(os.path.join('dataset_grey_val', "
 plate_data = load_images_from_folder('plate_train')
 generator = ImageGenerator(plate_data)
 
-# x_val = np.stack([preprocess_image(img) for img in load_images_from_folder('dataset2')])
-# y_val = np.stack([preprocess_image(img) for img in plate_data])
-
-# plate_val = load_images_from_folder('plate_val')
-# x_val = []
-# y_val = []
-# for img in plate_val:
-#     for i in range(4):
-#         y_val.append(preprocess_image(img))
-#         x_val.append(preprocess_image(generator.augmentImage(img)))
-
-# x_val = np.stack(x_val)
-# y_val = np.stack(y_val)
 
 model = RUNet()
 
 
-# "RUnet_checkpoint/{epoch:02d}-{val_loss:.2f}.h5"
 chk = tf.keras.callbacks.ModelCheckpoint("RUnet_checkpoint/{epoch:02d}-{val_loss:.2f}.h5", monitor='val_loss', save_best_only=True) 
 callbacks_list = [chk]
 
