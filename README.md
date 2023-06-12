@@ -1,4 +1,4 @@
-# Super-Resolution-Iranian-license-plate-using-unet
+# Super Resolution Iranian license plate using unet
 
 Results:
 
